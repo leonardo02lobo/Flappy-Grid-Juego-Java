@@ -21,6 +21,16 @@ public class Ventana extends Panel {
     @Override
     public void init() {
         Pajaro();
+        Fondo();
+    }
+    
+    private void Fondo(){
+        Image fondo = new ImageIcon(getClass().getResource("../source/fondo.png")).getImage();
+        Fondo.setIcon(new ImageIcon(fondo.getScaledInstance(Panel.ancho, Panel.alto, Image.SCALE_SMOOTH)));
+        Fondo.setBounds(0,0,Panel.ancho,Panel.alto);
+        add(Fondo);
+        
+        
     }
 
     private void Pajaro(){
@@ -38,4 +48,5 @@ public class Ventana extends Panel {
         add(pajaro);
     }
     JLabel pajaro = new JLabel();
+    JLabel Fondo = new JLabel();
 }
