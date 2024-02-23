@@ -6,8 +6,6 @@ import javax.swing.JLabel;
 
 public class Pajaro {
     
-    private int aux = 0;
-    
     public JLabel Pajaro(){
         
         Image[] imagenes = {
@@ -19,9 +17,15 @@ public class Pajaro {
         } else {
             pajaro.setIcon(new ImageIcon(imagenes[1].getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
         }
-        pajaro.setBounds(40, 20, 100, 100);
+        pajaro.setBounds(x, y, ancho, alto);
         return pajaro;
     }
+    
+    private int aux = 0;
+    private final int x = 40;
+    private int y = 20;
+    private final int ancho = 100;
+    private final int alto = 100;
     JLabel pajaro = new JLabel();
     
 }
