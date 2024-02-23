@@ -7,10 +7,6 @@ import javax.swing.*;
 public class Pajaro {
 
     public JLabel Pajaro() {
-
-        Image[] imagenes = {
-            new ImageIcon(getClass().getResource("../source/pajaro_con_fondo-removebg-preview.png")).getImage(),
-            new ImageIcon(getClass().getResource("../source/pngwing.com.png")).getImage()};
         aux++;
         if (aux % 2 == 0) {
             pajaro.setIcon(new ImageIcon(imagenes[0].getScaledInstance(ancho, alto, Image.SCALE_SMOOTH)));
@@ -26,6 +22,12 @@ public class Pajaro {
             y -= movimiento;
         }
     }
+    public void ColisionParajo(){
+        if(y == 580 || y == 0){
+            pajaro.setIcon(new ImageIcon(imagenes[2].getScaledInstance(ancho, alto, Image.SCALE_SMOOTH)));
+            Ventana.tiempo.stop();
+        }
+    }
 
     private int aux = 0;
     private final int x = 80;
@@ -34,4 +36,8 @@ public class Pajaro {
     private final int ancho = 100;
     private final int alto = 100;
     JLabel pajaro = new JLabel();
+    Image[] imagenes = {
+            new ImageIcon(getClass().getResource("../source/pajaro_con_fondo-removebg-preview.png")).getImage(),
+            new ImageIcon(getClass().getResource("../source/pngwing.com.png")).getImage(),
+            new ImageIcon(getClass().getResource("../source/pajaro_muerto_con_fondo-removebg-preview.png")).getImage()};
 }
