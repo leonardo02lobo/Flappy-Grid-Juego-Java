@@ -8,6 +8,7 @@ public class Ventana extends Panel {
     Pajaro pajaro = new Pajaro();
     Fondo fondo = new Fondo();
     Obstaculo obstaculo = new Obstaculo();
+    Puntaje puntaje = new Puntaje();
     public static Timer tiempo;
 
     public Ventana() {
@@ -18,6 +19,7 @@ public class Ventana extends Panel {
                 Pajaro.y += Pajaro.movimiento;
                 Obstaculo.x -= 20;
                 pajaro.ColisionParajo();
+                pajaro.PuntajePajaro();
             }
         });
         tiempo.start();
@@ -26,7 +28,9 @@ public class Ventana extends Panel {
 
     @Override
     public void init() {
-        add(obstaculo.tubo());
+        add(puntaje.Puntaje());
+        add(obstaculo.tubo1());
+        add(obstaculo.tubo2());
         add(pajaro.Pajaro());
         add(fondo.Fondo());
     }
