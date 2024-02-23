@@ -18,7 +18,6 @@ public class Ventana extends Panel {
                 Pajaro.y += Pajaro.movimiento;
                 Obstaculo.x -= 20;
                 pajaro.ColisionParajo();
-                obstaculo.ColisionTubo();
             }
         });
         tiempo.start();

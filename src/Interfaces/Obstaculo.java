@@ -11,13 +11,6 @@ public class Obstaculo {
         tubo1.setBounds(x, 0, ancho, alto);
         return tubo1;
     }
-    
-    public void ColisionTubo(){
-        if(x == Pajaro.x+60){
-            pajaro.MuertePajaro();
-            Ventana.tiempo.stop();
-        }
-    }
 
     JLabel tubo1 = new JLabel();
     private final int ancho = 95;

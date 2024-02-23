@@ -1,5 +1,6 @@
 package Interfaces;
 
+import static Interfaces.Obstaculo.x;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -23,7 +24,7 @@ public class Pajaro {
         }
     }
     public void ColisionParajo(){
-        if(y >= 580 || y <= 0){
+        if((y >= 580 || y <= 0) || (Obstaculo.x == x+60)){
             MuertePajaro();
             Ventana.tiempo.stop();
         }
