@@ -23,14 +23,18 @@ public class Pajaro {
         }
     }
     public void ColisionParajo(){
-        if(y == 580 || y == 0){
-            pajaro.setIcon(new ImageIcon(imagenes[2].getScaledInstance(ancho, alto, Image.SCALE_SMOOTH)));
+        if(y >= 580 || y <= 0){
+            MuertePajaro();
             Ventana.tiempo.stop();
         }
     }
+    
+    public void MuertePajaro(){
+        pajaro.setIcon(new ImageIcon(imagenes[2].getScaledInstance(ancho, alto, Image.SCALE_SMOOTH)));
+    }
 
     private int aux = 0;
-    private final int x = 80;
+    public static final int x = 80;
     public static int y = 200;
     public static final int movimiento = 20;
     private final int ancho = 100;

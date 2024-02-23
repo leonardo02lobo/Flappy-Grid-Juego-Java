@@ -7,6 +7,7 @@ public class Ventana extends Panel {
 
     Pajaro pajaro = new Pajaro();
     Fondo fondo = new Fondo();
+    Obstaculo obstaculo = new Obstaculo();
     public static Timer tiempo;
 
     public Ventana() {
@@ -15,7 +16,9 @@ public class Ventana extends Panel {
             public void actionPerformed(ActionEvent e) {
                 init();
                 Pajaro.y += Pajaro.movimiento;
+                Obstaculo.x -= 20;
                 pajaro.ColisionParajo();
+                obstaculo.ColisionTubo();
             }
         });
         tiempo.start();
@@ -24,6 +27,7 @@ public class Ventana extends Panel {
 
     @Override
     public void init() {
+        add(obstaculo.tubo());
         add(pajaro.Pajaro());
         add(fondo.Fondo());
     }
