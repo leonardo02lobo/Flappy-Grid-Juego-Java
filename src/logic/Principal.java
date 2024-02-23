@@ -11,6 +11,7 @@ public class Principal {
         Panel miPanel = new Ventana();
         miVentana.add(miPanel);
         miVentana.setSize(Panel.ancho,Panel.alto);
+        miVentana.setTitle("Flappy Bird");
         miVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         miVentana.setLocationRelativeTo(null);
         miVentana.setResizable(false);
