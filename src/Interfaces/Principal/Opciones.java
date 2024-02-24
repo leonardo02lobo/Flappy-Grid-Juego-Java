@@ -1,6 +1,8 @@
 package Interfaces.Principal;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class Opciones extends JFrame{
@@ -28,6 +30,16 @@ public class Opciones extends JFrame{
         etiqueta2.setBounds(0, 0, 700,461);
         etiqueta2.setIcon(new ImageIcon(pajarito.getImage().getScaledInstance(etiqueta2.getWidth(),etiqueta2.getHeight(),Image.SCALE_SMOOTH)));
         panel.add(etiqueta2);
+        
+        panel.add(volver.botonVolver());
+        volver.botonVolver().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                MenuPrincipal principal = new MenuPrincipal();
+                principal.setVisible(true);
+                dispose();
+            }
+        });
     }
 
     private void CargarLabel(JLabel label, int x,int y,String contenido){
@@ -41,4 +53,5 @@ public class Opciones extends JFrame{
     JPanel panel = new JPanel();
     JLabel opciones = new JLabel();
     JLabel idioma = new JLabel();
+    Boton_Volver volver = new Boton_Volver();
 }
