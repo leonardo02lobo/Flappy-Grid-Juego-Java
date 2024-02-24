@@ -1,6 +1,7 @@
 package Interfaces.Principal;
 
 import Interfaces.*;
+import Interfaces.Extra.Menu_Salir;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -77,7 +78,7 @@ public class MenuPrincipal extends JFrame {
         Timer tiempo = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Ventana.band) {
+                if (Menu_Salir.conf) {
                     setVisible(true);
                     miVentana.dispose();
                 }

@@ -1,5 +1,6 @@
 package Interfaces;
 
+import Interfaces.Extra.Menu_Salir;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -42,6 +43,9 @@ public class Ventana extends Panel {
     
     private void Teclas_Escape(KeyEvent e){
         if(e.getKeyCode() == 27){
+            Menu_Salir v = new Menu_Salir();
+            v.setVisible(true);
+            tiempo.stop();
             band = true;
         }
     }
