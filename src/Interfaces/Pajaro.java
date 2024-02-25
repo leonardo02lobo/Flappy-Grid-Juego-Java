@@ -23,7 +23,7 @@ public class Pajaro {
         }
     }
     public void ColisionParajo(){
-        if((y >= 580 || y <= 0) /*|| (Obstaculo.x == x+60)*/){
+        if(y >= 580 || y <= 0){
             pajaro.setIcon(new ImageIcon(imagenes[2].getScaledInstance(ancho, alto, Image.SCALE_SMOOTH)));
             Ventana.tiempo.stop();
         }

@@ -9,11 +9,16 @@ import javax.swing.*;
 public class Ventana extends Panel {
 
     public Ventana() {
+        Pajaro.y = 200;
         tiempo = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 organizar.Organizar(new File(url));
                 init();
+                Pajaro.y += Pajaro.movimiento;
+                Obstaculo.x -= 20;
+                pajaro.ColisionParajo();
+                pajaro.PuntajePajaro();
             }
         });
         tiempo.restart();
@@ -22,10 +27,7 @@ public class Ventana extends Panel {
 
     @Override
     public void init() {
-        Pajaro.y += Pajaro.movimiento;
-        Obstaculo.x -= 20;
-        pajaro.ColisionParajo();
-        pajaro.PuntajePajaro();
+
         add(puntaje.Puntaje());
         add(obstaculo.tubo1(imagenesAbajo[0], AnchoAbajo[0], AltoAbajo[0]));
         add(obstaculo.tubo2(imagenesArriba[0], AnchoArriba[0], AltoArriba[0]));
@@ -43,16 +45,16 @@ public class Ventana extends Panel {
         });
         setFocusable(true);
     }
-    
-    private void Teclas_Escape(KeyEvent e){
-        if(e.getKeyCode() == 27){
+
+    private void Teclas_Escape(KeyEvent e) {
+        if (e.getKeyCode() == 27) {
             Menu_Salir v = new Menu_Salir();
             v.setVisible(true);
             tiempo.stop();
             band = true;
         }
     }
-    
+
     public static String url = "src/Archivos/Idi-Esp.txt";
     Organizacion_De_Datos organizar = new Organizacion_De_Datos();
     public static boolean band = false;

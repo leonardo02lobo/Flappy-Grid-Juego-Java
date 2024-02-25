@@ -33,8 +33,23 @@ public class Opciones extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Ventana.url = "src/Archivos/Idi-ENG.txt";
+                guardar.setEnabled(true);
             }
         });
+        
+        guardar.setText("Guardar y Salir");
+        guardar.setEnabled(false);
+        guardar.setBounds(200,300,100,30);
+        panel.add(guardar);
+        guardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuPrincipal v = new MenuPrincipal();
+                v.setVisible(true);
+                dispose();
+            }
+        });
+        
 
         ImageIcon pajarito = new ImageIcon("src/source/menu.png");
         JLabel etiqueta2 = new JLabel();
@@ -70,4 +85,5 @@ public class Opciones extends JFrame{
     JLabel idioma = new JLabel();
     Boton_Volver volver = new Boton_Volver();
     Variables variable = new Variables();
+    JButton guardar = new JButton();
 }

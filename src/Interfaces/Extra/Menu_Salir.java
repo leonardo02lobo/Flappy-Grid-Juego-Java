@@ -24,7 +24,7 @@ public class Menu_Salir extends JFrame {
     private void init() {
 
         etiqueta.setText(informacion);
-        etiqueta.setFont(new Font("calibri", 1, 30));
+        etiqueta.setFont(new Font("calibri", 1, 25));
         etiqueta.setBounds(30, 20, 300, 30);
         panel.add(etiqueta);
 
@@ -44,6 +44,7 @@ public class Menu_Salir extends JFrame {
                 } else if (e.getSource() == Cancelar) {
                     dispose();
                     Ventana.tiempo.start();
+                    conf = false;
                 }
             }
         });

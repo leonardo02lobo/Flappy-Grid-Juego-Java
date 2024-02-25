@@ -71,6 +71,7 @@ public class MenuPrincipal extends JFrame {
         miVentana.setLocationRelativeTo(null);
         miVentana.setResizable(false);
         miVentana.setVisible(true);
+        Ventana.tiempo.start();
         dispose();
     }
 
@@ -81,6 +82,7 @@ public class MenuPrincipal extends JFrame {
                 if (Menu_Salir.conf) {
                     setVisible(true);
                     miVentana.dispose();
+                    Menu_Salir.conf = false;
                 }
             }
         });
