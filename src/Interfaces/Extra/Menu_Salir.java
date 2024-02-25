@@ -1,5 +1,6 @@
 package Interfaces.Extra;
 
+import Archivos.Variables;
 import Interfaces.Ventana;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +11,7 @@ public class Menu_Salir extends JFrame {
     public Menu_Salir() {
         super.setSize(ancho, alto);
         super.setLocationRelativeTo(null);
-        super.setTitle("Salir del Juego");
+        super.setTitle("Flappy Bird");
         super.setResizable(false);
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
         panel.setLayout(null);
@@ -22,13 +23,13 @@ public class Menu_Salir extends JFrame {
 
     private void init() {
 
-        etiqueta.setText("¿Desea salir del Juego?");
+        etiqueta.setText(informacion);
         etiqueta.setFont(new Font("calibri", 1, 30));
-        etiqueta.setBounds(80, 20, 250, 30);
+        etiqueta.setBounds(30, 20, 300, 30);
         panel.add(etiqueta);
 
-        Generar(Aceptar, 50, 100, 100, 30, "Aceptar");
-        Generar(Cancelar, 250, 100, 100, 30, "Cancelar");
+        Generar(Aceptar, 50, 100, 100, 30, aceptar);
+        Generar(Cancelar, 250, 100, 100, 30, cancelar);
     }
 
     private void Generar(JButton boton, int x, int y, int ancho, int alto, String texto) {
@@ -48,6 +49,9 @@ public class Menu_Salir extends JFrame {
         });
     }
 
+    public static String informacion;
+    public static String aceptar;
+    public static String cancelar;
     private final int ancho = 400;
     private final int alto = 200;
     JPanel panel = new JPanel();
@@ -55,4 +59,5 @@ public class Menu_Salir extends JFrame {
     JButton Aceptar = new JButton();
     JButton Cancelar = new JButton();
     public static boolean conf = false;
+    Variables variable = new Variables();
 }

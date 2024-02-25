@@ -1,7 +1,9 @@
 package Interfaces;
 
+import Archivos.Organizacion_De_Datos;
 import Interfaces.Extra.Menu_Salir;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 
 public class Ventana extends Panel {
@@ -10,6 +12,7 @@ public class Ventana extends Panel {
         tiempo = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                organizar.Organizar(new File(url));
                 init();
             }
         });
@@ -49,7 +52,9 @@ public class Ventana extends Panel {
             band = true;
         }
     }
-
+    
+    public static String url = "src/Archivos/Idi-Esp.txt";
+    Organizacion_De_Datos organizar = new Organizacion_De_Datos();
     public static boolean band = false;
     Pajaro pajaro = new Pajaro();
     Fondo fondo = new Fondo();

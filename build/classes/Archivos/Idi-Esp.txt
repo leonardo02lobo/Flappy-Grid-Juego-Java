@@ -1,0 +1,6 @@
+¿Desea salir del Juego?
+Aceptar
+Cancelar
+Configuracion
+Idioma
+Puntaje:

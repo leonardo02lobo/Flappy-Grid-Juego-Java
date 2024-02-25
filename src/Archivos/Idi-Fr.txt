@@ -1,0 +1,6 @@
+Voulez-vous quitter le jeu ?
+Accepter
+Annuler
+Paramètre
+langage
+Score:

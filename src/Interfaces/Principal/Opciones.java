@@ -1,8 +1,9 @@
 package Interfaces.Principal;
 
+import Archivos.Variables;
+import Interfaces.Ventana;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Opciones extends JFrame{
@@ -22,8 +23,18 @@ public class Opciones extends JFrame{
         panel.setLayout(null);
         this.getContentPane().add(panel);
 
-        CargarLabel(opciones,250,20,"Configuracion");
-        CargarLabel(idioma,60,60,"Idioma");
+        CargarLabel(opciones,250,20,configuracion);
+        CargarLabel(idioma,60,60,lenguaje);
+        
+        JButton ingles = new JButton("Ingles");
+        ingles.setBounds(60,100,100,20);
+        panel.add(ingles);
+        ingles.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Ventana.url = "src/Archivos/Idi-ENG.txt";
+            }
+        });
 
         ImageIcon pajarito = new ImageIcon("src/source/menu.png");
         JLabel etiqueta2 = new JLabel();
@@ -40,6 +51,8 @@ public class Opciones extends JFrame{
                 dispose();
             }
         });
+        
+        
     }
 
     private void CargarLabel(JLabel label, int x,int y,String contenido){
@@ -50,8 +63,11 @@ public class Opciones extends JFrame{
         panel.add(label);
     }
 
+    public static String configuracion;
+    public static String lenguaje;
     JPanel panel = new JPanel();
     JLabel opciones = new JLabel();
     JLabel idioma = new JLabel();
     Boton_Volver volver = new Boton_Volver();
+    Variables variable = new Variables();
 }
