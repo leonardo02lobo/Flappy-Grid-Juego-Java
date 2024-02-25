@@ -1,17 +1,17 @@
 package Interfaces.Extra;
 
-import Archivos.Variables;
-import Interfaces.Ventana;
+import Interfaces.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import logic.*;
 
 public class Menu_Salir extends JFrame {
 
     public Menu_Salir() {
         super.setSize(ancho, alto);
         super.setLocationRelativeTo(null);
-        super.setTitle("Flappy Bird");
+        super.setTitle(Principal.Titulo);
         super.setResizable(false);
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
         panel.setLayout(null);
@@ -25,7 +25,7 @@ public class Menu_Salir extends JFrame {
 
         etiqueta.setText(informacion);
         etiqueta.setFont(new Font("calibri", 1, 25));
-        etiqueta.setBounds(30, 20, 300, 30);
+        etiqueta.setBounds(30, 20, 350, 30);
         panel.add(etiqueta);
 
         Generar(Aceptar, 50, 100, 100, 30, aceptar);
@@ -44,7 +44,6 @@ public class Menu_Salir extends JFrame {
                 } else if (e.getSource() == Cancelar) {
                     dispose();
                     Ventana.tiempo.start();
-                    conf = false;
                 }
             }
         });
@@ -55,10 +54,9 @@ public class Menu_Salir extends JFrame {
     public static String cancelar;
     private final int ancho = 400;
     private final int alto = 200;
-    JPanel panel = new JPanel();
-    JLabel etiqueta = new JLabel();
-    JButton Aceptar = new JButton();
-    JButton Cancelar = new JButton();
+    private final JPanel panel = new JPanel();
+    private final JLabel etiqueta = new JLabel();
+    private final JButton Aceptar = new JButton();
+    private final JButton Cancelar = new JButton();
     public static boolean conf = false;
-    Variables variable = new Variables();
 }

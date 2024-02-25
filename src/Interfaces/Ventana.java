@@ -9,7 +9,6 @@ import javax.swing.*;
 public class Ventana extends Panel {
 
     public Ventana() {
-        Pajaro.y = 200;
         tiempo = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,6 +52,12 @@ public class Ventana extends Panel {
             tiempo.stop();
             band = true;
         }
+    }
+    
+    public static void ReiniciarValores(){
+        Pajaro.y = 200;
+        Obstaculo.x = 1000;
+        Puntaje.aux = 0;
     }
 
     public static String url = "src/Archivos/Idi-Esp.txt";

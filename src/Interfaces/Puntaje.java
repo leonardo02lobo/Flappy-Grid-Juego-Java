@@ -1,11 +1,9 @@
 package Interfaces;
 
-import Archivos.Variables;
 import java.awt.*;
 import javax.swing.*;
 
 public class Puntaje {
-    public static int aux = 0;
     
     public JLabel Puntaje(){
         puntaje.setText(Puntaje+" "+aux);
@@ -15,6 +13,6 @@ public class Puntaje {
         return puntaje;
     }
     JLabel puntaje = new JLabel();
-    Variables variable = new Variables();
     public static String Puntaje;
+    public static int aux = 0;
 }

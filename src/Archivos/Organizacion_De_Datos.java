@@ -1,12 +1,9 @@
 package Archivos;
 
-import Interfaces.Extra.Menu_Salir;
-import Interfaces.Principal.Opciones;
-import Interfaces.Puntaje;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import Interfaces.Extra.*;
+import Interfaces.*;
+import Interfaces.Principal.*;
+import java.io.*;
 
 public class Organizacion_De_Datos {
     
@@ -22,17 +19,16 @@ public class Organizacion_De_Datos {
             }
             SepararToken();
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo");
+            System.out.println("Error al leer el archivo: "+e.getMessage());
         }
     }
     
     private void SepararToken(){
         String[] palabras = Idioma.split(",");
-        Variables variables = new Variables();
-        ColocarDatosSet(palabras,variables);
+        ColocarDatosSet(palabras);
     }
 
-    private void ColocarDatosSet(String[] palabras, Variables variables) {
+    private void ColocarDatosSet(String[] palabras) {
         Menu_Salir.informacion = palabras[0];
         Menu_Salir.aceptar = palabras[1];
         Menu_Salir.cancelar = palabras[2];

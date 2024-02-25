@@ -1,23 +1,25 @@
 package Interfaces.Principal;
 
 import Interfaces.*;
-import Interfaces.Extra.Menu_Salir;
+import Interfaces.Extra.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import logic.Principal;
 
 public class MenuPrincipal extends JFrame {
 
     public MenuPrincipal() {
 
-        super.setSize(700, 500);
-        super.setTitle("Flappy Bird");
+        super.setSize(ancho, alto);
+        super.setTitle(Principal.Titulo);
         super.setLocationRelativeTo(null);
         super.setResizable(false);
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        panel = new JPanel();
+        
         panel.setLayout(null);
         super.getContentPane().add(panel);
+        
         init();
     }
 
@@ -39,13 +41,14 @@ public class MenuPrincipal extends JFrame {
         boton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == boton1) {
+                if (e.getSource().equals(boton1)) {
+                    Ventana.ReiniciarValores();
                     VentanaJuego();
-                } else if (e.getSource() == boton2) {
+                } else if (e.getSource().equals(boton2)) {
                     Record record = new Record();
                     record.setVisible(true);
                     dispose();
-                } else if (e.getSource() == boton3) {
+                } else if (e.getSource().equals(boton3)) {
                     Opciones opc = new Opciones();
                     opc.setVisible(true);
                     dispose();
@@ -55,7 +58,6 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void Fondo(JLabel label, int x, int y, int ancho, int alto, String url) {
-
         ImageIcon fondo = new ImageIcon(url);
         label.setBounds(x, y, ancho, alto);
         label.setIcon(new ImageIcon(fondo.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH)));
@@ -63,7 +65,6 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void VentanaJuego() {
-
         miVentana.add(miPanel);
         miVentana.setSize(1200, 700);
         miVentana.setTitle("Flappy Bird");
@@ -79,20 +80,22 @@ public class MenuPrincipal extends JFrame {
         Timer tiempo = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Menu_Salir.conf) {
+                if (botonSalir) {
                     setVisible(true);
                     miVentana.dispose();
-                    Menu_Salir.conf = false;
+                    botonSalir = false;
                 }
             }
         });
         tiempo.start();
-
     }
 
+    public static boolean botonSalir = false;
+    private final int ancho = 700;
+    private final int alto = 500;
     JFrame miVentana = new JFrame();
     Ventana miPanel = new Ventana();
-    public JPanel panel;
+    JPanel panel = new JPanel();
     JButton boton1 = new JButton();
     JButton boton2 = new JButton();
     JButton boton3 = new JButton();
